@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
+import DeleteForm from "../Components/DeleteForm";
 
 // ── Reusable scroll-reveal wrapper ──────────────────────────────
 const Reveal = ({ children, direction = "up", delay = 0, className = "" }) => {
@@ -616,6 +617,7 @@ const FAQItem = ({ q, a, index }) => {
 // ── MAIN COMPONENT ────────────────────────────────────────────────
 const HomePage = () => {
   const [navSection, setNavSection] = useState("Privacy Policy");
+  const [showDeleteForm, setShowDeleteForm] = useState(false);
 
   // Nav section tracker
   useEffect(() => {
@@ -753,6 +755,15 @@ const HomePage = () => {
                 <polyline points="6 9 12 15 18 9" />
               </svg>
             </a>
+            <button
+              onClick={() => setShowDeleteForm(true)}
+              className="inline-flex items-center gap-2 rounded-full bg-linear-to-r from-red-600 to-pink-700 px-7 py-3 text-sm font-medium text-white shadow-[0_4px_24px_rgba(239,68,68,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:opacity-90"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="3 6 5 6 21 6" /><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+              </svg>
+              Request Delete My Account
+            </button>
           </motion.div>
 
           {/* hero chips */}
@@ -991,6 +1002,7 @@ const HomePage = () => {
             </div>
           </Reveal>
         </Section>
+        {showDeleteForm && <DeleteForm onClose={() => setShowDeleteForm(false)} />}
       </main>
 
       {/* ── FOOTER ── */}

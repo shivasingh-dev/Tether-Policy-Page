@@ -1012,7 +1012,7 @@ const HomePage = () => {
           <span className="bg-linear-to-r from-blue-400 via-cyan-400 to-purple-400 bg-clip-text font-bold text-transparent">
             Tether
           </span>{" "}
-          · Developed by Shiva Singh · All rights reserved.
+          · Developed by Shiva Singh· All rights reserved.
         </p>
         <p className="mt-1 text-xs text-blue-300/25">
           Governed by the laws of India.
